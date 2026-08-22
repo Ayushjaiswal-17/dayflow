@@ -5,6 +5,7 @@ import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  cacheDir: '.vite-cache',
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] })
