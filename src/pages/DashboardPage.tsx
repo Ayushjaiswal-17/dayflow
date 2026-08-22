@@ -1,15 +1,19 @@
-import { useMemo, useState } from 'react'
+import { lazy, Suspense, useMemo, useState } from 'react'
 import { CalendarDays, Clock, Palmtree, UserRound, Wallet } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { GreetingBanner, StatCard } from '@/components/dashboard/GreetingBanner'
 import { LeaveCTA } from '@/components/dashboard/LeaveCTA'
-import { WeeklyAttendanceChart } from '@/components/dashboard/WeeklyAttendanceChart'
+import { Spinner } from '@/components/ui/Spinner'
 import type { WeekPoint } from '@/components/dashboard/WeeklyAttendanceChart'
 import { ActivityFeed } from '@/components/dashboard/ActivityFeed'
 import { QuickAccessCard } from '@/components/dashboard/QuickAccessCard'
 import { LeaveRequestModal } from '@/components/timeoff/LeaveRequestModal'
 import { useStore } from '@/lib/store-context'
+
+const WeeklyAttendanceChart = lazy(() =>
+  import('@/components/dashboard/WeeklyAttendanceChart').then((m) => ({ default: m.WeeklyAttendanceChart })),
+)
 import {
   addMinutesToTime12,
   computeLeaveBalance,
@@ -98,7 +102,9 @@ export function DashboardPage() {
       <section aria-label="Attendance and activity" className="grid grid-cols-1 gap-4 lg:grid-cols-[2fr_1fr]">
         <Card className="p-5">
           <h2 className="mb-4 text-base font-bold text-ink-900">This Week&apos;s Attendance</h2>
-          <WeeklyAttendanceChart data={weekPoints} />
+          <Suspense fallback={<div className="flex h-[220px] items-center justify-center"><Spinner label="Loading chart" /></div>}>
+            <WeeklyAttendanceChart data={weekPoints} />
+          </Suspense>
         </Card>
 
         <Card className="p-5">
