@@ -1,0 +1,33 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+main
+server
+dayflow
+
+# Test and coverage artifacts
+*.coverprofile
+coverage.txt
+coverage.out
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+
+# Dependency directories
+vendor/
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
