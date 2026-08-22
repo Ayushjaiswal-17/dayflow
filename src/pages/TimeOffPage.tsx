@@ -61,7 +61,7 @@ function EmployeeTimeOffView({ userId }: { userId: string }) {
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-xl font-extrabold text-ink-900">Time Off</h1>
+        <h1 className="app-page-title text-ink-900">Time Off</h1>
         <Button variant="primary" onClick={() => setModalOpen(true)}>
           <Plus size={16} aria-hidden /> NEW
         </Button>
@@ -128,7 +128,7 @@ function ManagerTimeOffView() {
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-xl font-extrabold text-ink-900">Time Off Requests</h1>
+        <h1 className="app-page-title text-ink-900">Time Off Requests</h1>
         <Button variant="primary" onClick={() => setModalOpen(true)}>
           <Plus size={16} aria-hidden /> NEW
         </Button>

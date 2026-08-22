@@ -259,7 +259,7 @@ export function SalaryInfoTab({ user }: { user: User }) {
       </Card>
 
       {/* Save bar */}
-      <div className="sticky bottom-4 z-10 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-ink-100 bg-surface-0/95 px-5 py-3.5 shadow-pop backdrop-blur">
+      <div className="sticky bottom-4 z-10 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-ink-100 bg-surface-0/95 px-5 py-3.5 backdrop-blur">
         <p className="text-xs text-ink-500">
           {overWage ? (
             <span className="font-semibold text-danger-500">Total components exceed the monthly wage — reduce them before saving.</span>

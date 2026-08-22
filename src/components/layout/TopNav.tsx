@@ -44,9 +44,9 @@ export function TopNav() {
   }
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink-100 bg-surface-0">
-      <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:px-6 lg:px-8">
-        <Link to="/dashboard" className="rounded-lg focus-ring" aria-label="Dayflow home">
+    <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-sm">
+      <nav aria-label="Main navigation" className="mx-auto flex min-h-[82px] max-w-7xl items-center justify-between gap-3 px-4 md:px-8 lg:px-10">
+        <Link to="/dashboard" className="rounded-lg focus-ring" aria-label="dayflow home">
           <Logo />
         </Link>
 
@@ -58,8 +58,8 @@ export function TopNav() {
                 to={tab.to}
                 className={({ isActive }) =>
                   cn(
-                    'rounded-full px-4 py-1.5 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500',
-                    isActive ? 'bg-surface-0 text-ink-900 shadow-card' : 'text-ink-500 hover:text-ink-900',
+                    'rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500',
+                    isActive ? 'bg-surface-0 text-ink-900' : 'text-ink-500 hover:bg-cream hover:text-ink-900',
                   )
                 }
               >
@@ -87,14 +87,14 @@ export function TopNav() {
                 onBlur={() => query === '' && setSearchOpen(false)}
                 placeholder="Search employees…"
                 aria-label="Search employees"
-                className="w-36 rounded-xl border border-blue-100 bg-surface-0 px-3 py-1.5 text-sm text-ink-900 placeholder:text-ink-300 transition-all focus:w-48 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 sm:w-44 sm:focus:w-60"
+                className="w-36 rounded-full border border-ink-100 bg-surface-0 px-4 py-2 text-sm text-ink-900 placeholder:text-ink-500 transition-all focus:w-48 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 sm:w-44 sm:focus:w-60"
               />
             </form>
           ) : (
             <button
               onClick={() => setSearchOpen(true)}
               aria-label="Search employees"
-              className="rounded-full p-2 text-ink-500 transition-colors hover:bg-blue-50 hover:text-blue-500 focus-ring"
+            className="rounded-full p-2 text-ink-500 transition-colors hover:bg-surface-0 hover:text-ink-900 focus-ring"
             >
               <Search size={19} aria-hidden />
             </button>
@@ -107,7 +107,7 @@ export function TopNav() {
             }}
             aria-label={`Notifications${unread ? ' — unread' : ''}`}
             aria-expanded={bellOpen}
-            className="relative rounded-full p-2 text-ink-500 transition-colors hover:bg-blue-50 hover:text-blue-500 focus-ring"
+            className="relative rounded-full p-2 text-ink-500 transition-colors hover:bg-surface-0 hover:text-ink-900 focus-ring"
           >
             <Bell size={19} aria-hidden />
             {unread && <span aria-hidden className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-pink-400 ring-2 ring-surface-0" />}
@@ -134,7 +134,7 @@ export function TopNav() {
 
           {/* Notification popover */}
           {bellOpen && (
-            <div role="dialog" aria-label="Recent notifications" className="absolute top-16 right-4 w-80 rounded-2xl border border-ink-100 bg-surface-0 p-3 shadow-pop">
+            <div role="dialog" aria-label="Recent notifications" className="absolute top-20 right-4 w-80 rounded-2xl border border-ink-100 bg-surface-0 p-3">
               <p className="px-2 pb-2 pt-1 text-xs font-bold tracking-wide text-ink-500 uppercase">Notifications</p>
               <ul className="max-h-64 overflow-y-auto">
                 {activities.slice(0, 5).map((a) => (
@@ -149,7 +149,7 @@ export function TopNav() {
 
           {/* Avatar dropdown */}
           {menuOpen && (
-            <div role="menu" aria-label="Account" className="absolute top-16 right-4 z-50 w-52 rounded-2xl border border-ink-100 bg-surface-0 p-1.5 shadow-pop">
+            <div role="menu" aria-label="Account" className="absolute top-20 right-4 z-50 w-52 rounded-2xl border border-ink-100 bg-surface-0 p-1.5">
               <div className="border-b border-ink-100 px-3 py-2">
                 <p className="truncate text-sm font-bold text-ink-900">
                   {currentUser.firstName} {currentUser.lastName}
@@ -160,7 +160,7 @@ export function TopNav() {
                 to="/profile"
                 role="menuitem"
                 onClick={() => setMenuOpen(false)}
-                className="mt-1 flex items-center gap-2.5 rounded-xl px-3 py-2 text-sm font-medium text-ink-700 transition-colors hover:bg-blue-50 hover:text-blue-500 focus-ring"
+                className="mt-1 flex items-center gap-2.5 rounded-full px-3 py-2 text-sm font-medium text-ink-700 transition-colors hover:bg-blue-50 hover:text-ink-900 focus-ring"
               >
                 <UserRound size={16} aria-hidden /> My Profile
               </Link>
@@ -171,7 +171,7 @@ export function TopNav() {
                   signOut()
                   navigate('/auth/signin', { replace: true })
                 }}
-                className="flex w-full items-center gap-2.5 rounded-xl px-3 py-2 text-left text-sm font-medium text-ink-700 transition-colors hover:bg-danger-50 hover:text-danger-500 focus-ring"
+                className="flex w-full items-center gap-2.5 rounded-full px-3 py-2 text-left text-sm font-medium text-ink-700 transition-colors hover:bg-danger-50 hover:text-danger-500 focus-ring"
               >
                 <LogOut size={16} aria-hidden /> Log Out
               </button>
@@ -182,7 +182,7 @@ export function TopNav() {
 
       {/* Mobile tabs */}
       {mobileOpen && (
-        <ul className="border-t border-ink-100 bg-surface-0 px-4 py-2 md:hidden">
+        <ul className="border-t border-ink-100 bg-cream px-4 py-2 md:hidden">
           {NAV_TABS.map((tab) => (
             <li key={tab.to}>
               <NavLink
@@ -191,7 +191,7 @@ export function TopNav() {
                 className={({ isActive }) =>
                   cn(
                     'my-1 block rounded-xl px-4 py-2.5 text-sm font-semibold transition-colors',
-                    isActive ? 'bg-blue-50 text-blue-500' : 'text-ink-700 hover:bg-cream',
+                    isActive ? 'bg-blue-50 text-ink-900' : 'text-ink-700 hover:bg-surface-0',
                   )
                 }
               >

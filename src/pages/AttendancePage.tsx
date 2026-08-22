@@ -66,7 +66,7 @@ function EmployeeAttendanceView({ userId }: { userId: string }) {
   return (
     <div className="space-y-5">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <h1 className="text-xl font-extrabold text-ink-900">
+        <h1 className="app-page-title text-ink-900">
           Attendance <span className="text-sm font-semibold text-ink-500">· {user.firstName} {user.lastName}</span>
         </h1>
         <nav aria-label="Month navigation" className="flex items-center gap-2">
@@ -159,7 +159,7 @@ function AdminAttendanceView() {
 
   return (
     <div className="space-y-5">
-      <h1 className="text-xl font-extrabold text-ink-900">
+      <h1 className="app-page-title text-ink-900">
         Team Attendance <span className="text-sm font-semibold text-ink-500">· all employees</span>
       </h1>
 

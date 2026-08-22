@@ -21,7 +21,7 @@ export function EmployeeCard({
   return (
     <Link
       to={`/employees/${id}`}
-      className="group relative flex flex-col items-center gap-3 rounded-2xl border border-ink-100 bg-surface-0 p-4 text-center shadow-card transition-all hover:-translate-y-0.5 hover:border-blue-100 hover:shadow-card-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+      className="group relative flex flex-col items-center gap-3 rounded-2xl border border-ink-100 bg-surface-0 p-5 text-center transition-all hover:-translate-y-0.5 hover:border-ink-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
     >
       <span className="absolute top-3 right-3">
         <EmployeeStatusDot status={status} />

@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Landing page design tokens (scoped visuals live under .landing-root below) */
+/* Caldera design tokens shared by the landing page, auth, and product surfaces. */
 :root {
   --color-ember: #fc5000;
   --color-plasma-violet: #524ae9;
@@ -28,8 +28,64 @@
 
 @layer components {
   .focus-ring {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
   }
+}
+
+/* Authenticated product surfaces use the same material language as the landing page. */
+.product-shell,
+.auth-shell {
+  font-family: var(--font-body);
+  color: var(--color-obsidian);
+  background: var(--color-pumice);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+.product-shell h1,
+.product-shell h2,
+.product-shell h3,
+.auth-shell h1,
+.auth-shell h2,
+.auth-shell h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: .015em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.product-shell .app-page-title {
+  margin: 0;
+  font-size: 2.75rem;
+  line-height: .92;
+}
+@media (max-width: 640px) {
+  .product-shell .app-page-title { font-size: 2.15rem; }
+}
+.product-shell input,
+.product-shell select,
+.product-shell textarea,
+.auth-shell input,
+.auth-shell select,
+.auth-shell textarea {
+  border-color: rgba(7, 6, 7, .18);
+}
+.product-shell input:focus,
+.product-shell select:focus,
+.product-shell textarea:focus,
+.auth-shell input:focus,
+.auth-shell select:focus,
+.auth-shell textarea:focus {
+  border-color: var(--color-plasma-violet);
+  box-shadow: 0 0 0 2px rgba(82, 74, 233, .2);
+}
+.auth-halftone {
+  position: absolute;
+  inset: 12% -10% 18% 12%;
+  background-image: radial-gradient(circle, rgba(245, 242, 142, .86) 0 2px, transparent 2.8px);
+  background-size: 12px 12px;
+  mask-image: radial-gradient(ellipse at center, #000 0 35%, transparent 76%);
+  opacity: .7;
+  transform: rotate(-8deg);
 }
 
 /* Landing page globals — scoped so the HRMS app keeps its Tailwind look */

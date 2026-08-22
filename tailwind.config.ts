@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Primary actions — landing "ember" (#fc5000)
+        // Caldera palette shared by the landing page and authenticated product.
         blue: {
           50: '#FFF1EA',
           100: '#FFE0D1',
@@ -28,7 +28,7 @@ export default {
           300: '#F5F28E',
           400: '#EEE862',
         },
-        cream: '#F7F6F2',
+        cream: '#E2E2DF',
         ink: {
           100: '#EBEBE7',
           300: '#C9C9C4',
@@ -36,7 +36,7 @@ export default {
           700: '#3D3D38',
           900: '#070607',
         },
-        surface: { 0: '#FFFFFF' },
+        surface: { 0: '#F7F6F2' },
         success: { 50: '#D1FAE5', 500: '#10B981' },
         warning: { 50: '#FEF3C7', 500: '#F59E0B' },
         danger: { 50: '#FEE2E2', 500: '#EF4444' },
@@ -56,13 +56,13 @@ export default {
         display: ['Roboto Condensed', 'Arial Narrow', 'Impact', 'sans-serif'],
       },
       boxShadow: {
-        card: '0 4px 12px rgba(7,6,7,0.06)',
-        'card-lg': '0 8px 24px rgba(7,6,7,0.10)',
-        pop: '0 12px 32px rgba(7,6,7,0.16)',
+        card: 'none',
+        'card-lg': 'none',
+        pop: 'none',
       },
       borderRadius: {
         xl: '12px',
-        '2xl': '16px',
+        '2xl': '40px',
       },
     },
   },

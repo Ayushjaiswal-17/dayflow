@@ -4,7 +4,7 @@ import type { Activity } from '@/lib/mock-data'
 const TYPE_STYLES: Record<Activity['type'], { icon: typeof Wallet; chip: string }> = {
   checkin: { icon: CalendarCheck2, chip: 'bg-blue-50 text-blue-500' },
   leave: { icon: Palmtree, chip: 'bg-purple-50 text-purple-600' },
-  salary: { icon: Wallet, chip: 'bg-pink-50 text-pink-400' },
+  salary: { icon: Wallet, chip: 'bg-pink-300 text-ink-900' },
   profile: { icon: UserRoundPen, chip: 'bg-blue-50 text-blue-500' },
 }
 

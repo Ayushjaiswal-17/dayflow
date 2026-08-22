@@ -8,12 +8,6 @@ import { Input } from '@/components/ui/Input'
 import { Logo } from '@/components/ui/Logo'
 import { useStore } from '@/lib/store-context'
 
-const DEMO_ACCOUNTS = [
-  { label: 'Admin', login: 'aarav.mehta@oidos.in', password: 'Admin@123' },
-  { label: 'HR Officer', login: 'priya.sharma@oidos.in', password: 'Hr@12345' },
-  { label: 'Employee', login: 'OITODO20220001', password: 'Dayflow@123' },
-]
-
 export function SignInPage() {
   const { signIn } = useStore()
   const [identifier, setIdentifier] = useState('')
@@ -38,20 +32,20 @@ export function SignInPage() {
   return (
     <AuthLayout>
       <div className="mb-8 flex justify-center">
-        <Link to="/auth/signin" aria-label="Dayflow home" className="rounded-lg focus-ring">
+        <Link to="/auth/signin" aria-label="dayflow home" className="rounded-lg focus-ring">
           <Logo />
         </Link>
       </div>
 
       <h1 className="text-xl font-extrabold text-ink-900">Welcome back</h1>
-      <p className="mt-1 mb-6 text-sm text-ink-500">Sign in to your Dayflow workspace.</p>
+      <p className="mt-1 mb-6 text-sm text-ink-500">Sign in to your dayflow workspace.</p>
 
       <form onSubmit={onSubmit} noValidate className="space-y-4">
         <Input
           label="Login ID / Email"
           type="text"
           autoComplete="username"
-          placeholder="e.g. OITODO20220001"
+          placeholder="you@example.com or your Login ID"
           value={identifier}
           onChange={(e) => setIdentifier(e.target.value)}
           aria-invalid={Boolean(error)}
@@ -90,20 +84,6 @@ export function SignInPage() {
         </Link>
       </p>
 
-      <details className="mt-6 rounded-xl border border-ink-100 bg-cream/70 p-3.5">
-        <summary className="cursor-pointer text-xs font-bold text-ink-700 select-none">Demo credentials</summary>
-        <ul className="mt-2 space-y-1.5">
-          {DEMO_ACCOUNTS.map((a) => (
-            <li key={a.login} className="flex flex-wrap items-center justify-between gap-x-3 text-xs text-ink-500">
-              <span className="font-bold text-ink-700">{a.label}</span>
-              <span>
-                <code className="rounded bg-surface-0 px-1.5 py-0.5 text-[11px] text-blue-600">{a.login}</code>{' '}
-                <code className="rounded bg-surface-0 px-1.5 py-0.5 text-[11px] text-purple-600">{a.password}</code>
-              </span>
-            </li>
-          ))}
-        </ul>
-      </details>
     </AuthLayout>
   )
 }

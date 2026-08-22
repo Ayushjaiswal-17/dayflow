@@ -43,13 +43,13 @@ export function EmployeesPage() {
   return (
     <div className="space-y-5 pb-40">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <h1 className="text-xl font-extrabold text-ink-900">
+        <h1 className="app-page-title text-ink-900">
           Employees <span className="text-sm font-semibold text-ink-500">({visibleUsers.length})</span>
         </h1>
         {isManager && (
           <button
             onClick={() => setNewModal(true)}
-            className="inline-flex w-fit items-center gap-1.5 rounded-xl bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+            className="inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full bg-blue-500 px-5 py-2.5 text-sm font-semibold text-ink-900 transition-[transform,background-color] hover:-translate-y-0.5 hover:bg-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2"
           >
             <Plus size={16} aria-hidden /> NEW
           </button>

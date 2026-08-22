@@ -29,7 +29,7 @@ function ChartTooltip({ active, payload, label }: { active?: boolean; payload?: 
   if (!active || !payload?.length) return null
   const point = payload[0].payload
   return (
-    <div className="rounded-xl border border-ink-100 bg-surface-0 px-3 py-2 text-xs shadow-card">
+    <div className="rounded-xl border border-ink-100 bg-surface-0 px-3 py-2 text-xs">
       <p className="font-bold text-ink-900">{label}</p>
       <p className="text-ink-500">
         {point.hours > 0 ? `${point.hours} hrs` : 'No record'} ·{' '}

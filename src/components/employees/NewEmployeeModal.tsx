@@ -177,7 +177,7 @@ export function CheckInOutWidget() {
   return (
     <aside
       aria-label="Check in widget"
-      className="fixed right-4 bottom-4 z-40 w-[calc(100vw-2rem)] max-w-[240px] rounded-2xl border border-ink-100 bg-surface-0 p-4 shadow-pop sm:right-6 sm:bottom-6"
+      className="fixed right-4 bottom-4 z-40 w-[calc(100vw-2rem)] max-w-[240px] rounded-2xl border border-ink-100 bg-surface-0 p-4 sm:right-6 sm:bottom-6"
     >
       <div className="mb-2 flex items-center gap-2">
         <span aria-hidden className={`relative flex h-3 w-3`}>

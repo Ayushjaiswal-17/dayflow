@@ -14,9 +14,9 @@ export function AppLayout() {
   if (!currentUser) return <Navigate to="/auth/signin" replace />
 
   return (
-    <div className="min-h-screen bg-cream">
+    <div className="product-shell min-h-screen bg-cream">
       <TopNav />
-      <main className="mx-auto w-full max-w-6xl px-4 py-6 md:px-6 lg:px-8">
+      <main className="mx-auto w-full max-w-7xl px-4 py-8 md:px-8 lg:px-10">
         <Outlet />
       </main>
     </div>

@@ -20,7 +20,7 @@ export function Tabs({
   className?: string
 }) {
   return (
-    <div role="tablist" aria-label={ariaLabel} className={cn('flex flex-wrap items-center gap-1 rounded-xl bg-cream p-1', className)}>
+    <div role="tablist" aria-label={ariaLabel} className={cn('flex flex-wrap items-center gap-1 rounded-full bg-cream p-1', className)}>
       {tabs.map((tab) => {
         const active = tab.id === activeId
         return (
@@ -32,8 +32,8 @@ export function Tabs({
             aria-controls={`panel-${tab.id}`}
             onClick={() => onChange(tab.id)}
             className={cn(
-              'rounded-xl px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1',
-              active ? 'bg-surface-0 text-ink-900 shadow-card' : 'text-ink-500 hover:text-ink-900',
+              'min-h-11 rounded-full px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-1',
+              active ? 'bg-surface-0 text-ink-900' : 'text-ink-500 hover:text-ink-900',
             )}
           >
             {tab.label}

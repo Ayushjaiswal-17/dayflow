@@ -26,8 +26,8 @@ export function Input({ label, hint, className, type = 'text', id, ...props }: I
           id={inputId}
           type={isPassword && showPw ? 'text' : type}
           className={cn(
-            'w-full rounded-xl border border-ink-100 bg-surface-0 px-3.5 py-2.5 text-sm text-ink-900 placeholder:text-ink-300 transition-colors focus-ring',
-            'hover:border-ink-300 focus-visible:border-blue-500 read-only:bg-cream/60 read-only:text-ink-700',
+            'w-full rounded-full border border-ink-100 bg-surface-0 px-4 py-3 text-sm text-ink-900 placeholder:text-ink-500 transition-colors focus-ring',
+            'hover:border-ink-300 focus-visible:border-purple-500 read-only:bg-cream/60 read-only:text-ink-700',
             isPassword && 'pr-10',
             className,
           )}

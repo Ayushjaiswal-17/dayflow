@@ -110,7 +110,7 @@ export function ResumeTab({ user, editable }: { user: User; editable: boolean })
       </div>
 
       <div className="space-y-4">
-        <section aria-label="Skills" className="rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-card">
+        <section aria-label="Skills" className="rounded-2xl border border-ink-100 bg-surface-0 p-5">
           <div className="mb-3 flex items-center justify-between">
             <h3 className="text-sm font-bold text-ink-900">Skills</h3>
             {editable && (
@@ -148,7 +148,7 @@ export function ResumeTab({ user, editable }: { user: User; editable: boolean })
           )}
         </section>
 
-        <section aria-label="Certifications" className="rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-card">
+        <section aria-label="Certifications" className="rounded-2xl border border-ink-100 bg-surface-0 p-5">
           <div className="mb-3 flex items-center justify-between">
             <h3 className="text-sm font-bold text-ink-900">Certification</h3>
             {editable && (
@@ -224,7 +224,7 @@ export function PrivateInfoTab({ user, editable }: { user: User; editable: boole
 
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      <fieldset className="rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-card">
+      <fieldset className="rounded-2xl border border-ink-100 bg-surface-0 p-5">
         <legend className="px-1 text-sm font-bold text-ink-900">Personal Details</legend>
         <div className="space-y-3 pt-2">
           {fieldsLeft.map(([label, key]) => (
@@ -244,7 +244,7 @@ export function PrivateInfoTab({ user, editable }: { user: User; editable: boole
         </div>
       </fieldset>
 
-      <fieldset className="rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-card">
+      <fieldset className="rounded-2xl border border-ink-100 bg-surface-0 p-5">
         <legend className="px-1 text-sm font-bold text-ink-900">Bank & Statutory</legend>
         <div className="space-y-3 pt-2">
           {fieldsRight.map(([label, key]) => (

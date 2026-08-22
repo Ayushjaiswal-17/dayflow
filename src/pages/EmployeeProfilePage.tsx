@@ -19,12 +19,12 @@ const ROLE_LABEL: Record<User['role'], string> = {
 
 function ProfileHeader({ user }: { user: User }) {
   return (
-    <header className="rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-card sm:p-6">
+    <header className="rounded-2xl border border-ink-100 bg-surface-0 p-5 sm:p-6">
       <div className="flex flex-col gap-5 sm:flex-row sm:items-center">
         <Avatar initials={user.avatarInitial} size="xl" />
         <div className="min-w-0">
           <div className="flex flex-wrap items-center gap-2.5">
-            <h1 className="text-xl font-extrabold text-ink-900 sm:text-2xl">
+            <h1 className="app-page-title text-ink-900">
               {user.firstName} {user.lastName}
             </h1>
             <Badge tone={user.role === 'admin' ? 'pink' : user.role === 'hr' ? 'purple' : 'blue'}>{ROLE_LABEL[user.role]}</Badge>

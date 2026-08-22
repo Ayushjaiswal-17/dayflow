@@ -9,13 +9,13 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variants: Record<ButtonVariant, string> = {
-  primary: 'bg-blue-500 text-white hover:bg-blue-600 active:bg-blue-700',
-  secondary: 'border border-ink-100 bg-surface-0 text-ink-700 hover:border-ink-300 hover:text-ink-900',
-  ghost: 'text-ink-500 hover:bg-blue-50 hover:text-blue-500',
+  primary: 'bg-blue-500 text-ink-900 hover:bg-blue-600 active:bg-blue-700',
+  secondary: 'border-[1.5px] border-ink-900 bg-transparent text-ink-900 hover:bg-ink-900 hover:text-white',
+  ghost: 'text-ink-500 hover:bg-blue-50 hover:text-ink-900',
   success: 'bg-success-500 text-white hover:bg-success-500/90',
   danger: 'bg-danger-500 text-white hover:bg-danger-500/90',
   pink: 'bg-pink-300 text-ink-900 hover:bg-pink-400',
-  purple: 'bg-purple-600 text-white hover:bg-purple-600/90',
+  purple: 'bg-purple-500 text-white hover:bg-purple-600',
 }
 
 export function Button({ variant = 'primary', className, children, type = 'button', ...props }: ButtonProps) {
@@ -23,8 +23,8 @@ export function Button({ variant = 'primary', className, children, type = 'butto
     <button
       type={type}
       className={cn(
-        'inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition-colors',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0',
+        'inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-[transform,background-color,color,border-color]',
+        'hover:-translate-y-0.5 active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream',
         'disabled:pointer-events-none disabled:opacity-50',
         variants[variant],
         className,

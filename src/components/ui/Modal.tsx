@@ -64,7 +64,7 @@ export function Modal({
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        className={cn('w-full rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-pop sm:p-6', width)}
+        className={cn('w-full rounded-2xl border border-ink-100 bg-surface-0 p-5 sm:p-6', width)}
       >
         <div className="mb-4 flex items-center justify-between gap-4">
           <h2 className="text-base font-bold text-ink-900">{title}</h2>

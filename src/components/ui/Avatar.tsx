@@ -22,7 +22,7 @@ export function Avatar({
       role="img"
       aria-label={`Avatar of ${initials}`}
       className={cn(
-        'inline-flex shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 font-bold text-white select-none',
+        'inline-flex shrink-0 items-center justify-center rounded-full bg-purple-500 font-bold text-white select-none',
         sizes[size],
         className,
       )}

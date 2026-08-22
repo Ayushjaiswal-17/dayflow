@@ -15,7 +15,7 @@ export function GreetingBanner({
   return (
     <section
       aria-label="Daily greeting"
-      className="flex items-center justify-between gap-4 rounded-2xl border border-pink-100 bg-gradient-to-r from-pink-50 to-purple-50 px-6 py-7 sm:px-7"
+      className="flex items-center justify-between gap-4 rounded-2xl border border-ink-100 bg-pink-300 px-6 py-7 sm:px-7"
     >
       <div>
         <h1 className="text-xl font-extrabold tracking-tight text-ink-900 sm:text-2xl">
@@ -24,7 +24,7 @@ export function GreetingBanner({
         <p className="mt-1.5 text-sm text-ink-500">
           {checkedInAt ? (
             <>
-              You&apos;re checked in at <span className="font-bold text-purple-600">{checkedInAt}</span> · {dateMessage}
+              You&apos;re checked in at <span className="font-bold text-purple-500">{checkedInAt}</span> · {dateMessage}
             </>
           ) : (
             <>You&apos;re not checked in yet · {dateMessage}</>
@@ -57,7 +57,7 @@ export function StatCard({
 }) {
   const a = accents[accent]
   return (
-    <article className={cn('rounded-2xl border border-t-4 border-ink-100 bg-surface-0 p-5 shadow-card transition-shadow hover:shadow-card-lg', a.border)}>
+    <article className={cn('rounded-2xl border border-ink-100 bg-surface-0 p-5 transition-colors hover:border-ink-900', a.border)}>
       <div className="mb-3 flex items-center gap-3">
         <span aria-hidden className={cn('flex h-9 w-9 items-center justify-center rounded-lg', a.chip)}>
           {icon}

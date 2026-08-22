@@ -28,7 +28,7 @@ export function SignUpPage() {
   return (
     <AuthLayout>
       <div className="mb-8 flex justify-center">
-        <Link to="/auth/signin" aria-label="Dayflow home" className="rounded-lg focus-ring">
+        <Link to="/auth/signin" aria-label="dayflow home" className="rounded-lg focus-ring">
           <Logo />
         </Link>
       </div>

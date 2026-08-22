@@ -43,7 +43,7 @@ export function SecurityTab({ user }: { user: User }) {
 
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_320px]">
-      <form onSubmit={onSubmit} noValidate className="space-y-4 rounded-2xl border border-ink-100 bg-surface-0 p-5 shadow-card">
+      <form onSubmit={onSubmit} noValidate className="space-y-4 rounded-2xl border border-ink-100 bg-surface-0 p-5">
         {user.mustChangePassword && (
           <p role="alert" className="rounded-xl bg-warning-50 px-4 py-3 text-sm font-medium text-warning-500">
             You&apos;re using a system-generated password. Set a new one to secure your account.
