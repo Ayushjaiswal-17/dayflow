@@ -30,7 +30,7 @@ export function SignInPage() {
     }
     setBusy(true)
     await new Promise((r) => setTimeout(r, 450)) // simulate network
-    const err = signIn(identifier, password)
+    const err = await signIn(identifier, password)
     setBusy(false)
     if (err) setError(err)
   }

@@ -14,10 +14,13 @@ import {
   type LeaveRequest,
   type LeaveStatus,
   type ResumeInfo,
+  type Role,
   type SalaryConfig,
   type User,
 } from './mock-data'
+import { makeUser } from './mock-data'
 import { StoreContext, type AppStore, type NewEmployeeInput } from './store-context'
+import { ApiError, apiLogin, setToken } from './api'
 
 interface StoreState {
   users: User[]
@@ -101,11 +104,51 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   }, [])
 
   const signIn = useCallback(
-    (identifier: string, password: string): string | null => {
+    async (identifier: string, password: string): Promise<string | null> => {
       const id = identifier.trim().toLowerCase()
-      const user = state.users.find((u) => u.email.toLowerCase() === id || u.loginId.toLowerCase() === id)
+
+      // Try the Go backend first (Docker: nginx/proxy -> api -> Postgres).
+      try {
+        const auth = await apiLogin(id, password)
+        setToken(auth.token)
+        const emp = auth.employee
+        const role: Role = emp.role === 'admin' ? 'admin' : emp.role === 'hr_officer' ? 'hr' : 'employee'
+        const remoteUser: User = makeUser({
+          id: emp.id,
+          loginId: emp.login_id,
+          email: emp.email,
+          firstName: emp.first_name,
+          lastName: emp.last_name,
+          role,
+          companyName: emp.company_name ?? 'Oidos India',
+          department: emp.department ?? '',
+          manager: emp.manager_name ?? '',
+          mobile: emp.phone ?? '',
+          mustChangePassword: auth.must_reset_password || emp.must_reset_password,
+          joiningDate: emp.date_of_joining?.slice(0, 10) ?? toISO(new Date()),
+        })
+        setState((s) => ({
+          ...s,
+          users: [...s.users.filter((u) => u.id !== remoteUser.id), remoteUser],
+          currentUserId: remoteUser.id,
+        }))
+        return null
+      } catch (err) {
+        // Backend reachable but rejected credentials — surface its message.
+        if (err instanceof ApiError && err.status !== 0) {
+          return err.message === 'invalid credentials'
+            ? 'Incorrect credentials. Please try again.'
+            : err.message
+        }
+        // Backend unreachable (dev without Docker) — fall back to local demo data.
+      }
+
+      const user = state.users.find(
+        (u) => u.email.toLowerCase() === id || u.loginId.toLowerCase() === id,
+      )
       if (!user) return 'No account found with that Login ID or email.'
       if (user.password !== password) return 'Incorrect password. Please try again.'
+      setToken(null)
       setState((s) => ({ ...s, currentUserId: user.id }))
       return null
     },
@@ -113,6 +156,7 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   )
 
   const signOut = useCallback(() => {
+    setToken(null)
     setState((s) => ({ ...s, currentUserId: null }))
   }, [])
 

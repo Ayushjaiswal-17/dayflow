@@ -220,7 +220,7 @@ const defaultResume = (): ResumeInfo => ({
   certifications: [],
 })
 
-function makeUser(partial: Partial<User> & Pick<User, 'id' | 'loginId' | 'email' | 'firstName' | 'lastName' | 'role'>): User {
+export function makeUser(partial: Partial<User> & Pick<User, 'id' | 'loginId' | 'email' | 'firstName' | 'lastName' | 'role'>): User {
   return {
     password: 'Dayflow@123',
     companyName: COMPANY_NAME,

@@ -31,7 +31,7 @@ export interface AppStore {
   currentUser: User | null
   isManagerRole: boolean
   todayISO: string
-  signIn(identifier: string, password: string): string | null
+  signIn(identifier: string, password: string): Promise<string | null>
   signOut(): void
   changePassword(currentPw: string, nextPw: string): string | null
   completeFirstLogin(): void
