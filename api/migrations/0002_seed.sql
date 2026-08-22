@@ -53,14 +53,16 @@ JOIN employees e ON e.email = w.email;
 
 INSERT INTO salary_components (id, salary_structure_id, kind, name, calculation_type, value, computed_amount, display_order)
 SELECT gen_random_uuid(), s.id, c.kind::component_kind, c.name,
-       c.calc::calculation_type, c.pct, ROUND(s.wage_amount * c.factor, 2), c.ord
+       c.calc::calculation_type, c.pct,
+       ROUND(CASE WHEN c.calc = 'fixed' THEN c.pct ELSE s.wage_amount * c.factor END, 2), c.seq
 FROM salary_structures s
 CROSS JOIN (VALUES
-  (1, 'earning',   'Basic',            'percentage', 50.0, 0.50, 1),
-  (2, 'earning',   'House Rent Allowance', 'percentage', 25.0, 0.25, 2),
-  (3, 'deduction', 'Provident Fund',   'percentage', 6.0,  0.06, 3),
-  (4, 'deduction', 'Professional Tax', 'fixed',      200.0, 200.0, 4)
-) AS c(seq, kind, name, calc, pct, factor, ord);
+  (1, 'earning',   'Basic',                'percentage', 50.0, 0.50),
+  (2, 'earning',   'House Rent Allowance', 'percentage', 25.0, 0.25),
+  (3, 'deduction', 'Provident Fund',       'percentage', 12.0, 0.12),
+  (4, 'deduction', 'Professional Tax',     'fixed',      200.0, 200.0)
+) AS c(seq, kind, name, calc, pct, factor)
+ORDER BY s.employee_id, c.seq;
 
 -- Attendance history: past 30 days, weekdays present 09:07–17:42 (~8.58h). Today left open for check-in.
 INSERT INTO attendance_records (id, employee_id, work_date, check_in, check_out, work_hours, extra_hours, status)
