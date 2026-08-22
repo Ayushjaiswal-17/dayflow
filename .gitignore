@@ -46,3 +46,14 @@ dayflow-codex-spec/
 *.sw?
 Dayflow - Human Resource Management System.pdf
 Thumbs.db
+
+# Go & Backend
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+api/.env
+
