@@ -8,9 +8,31 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+node_modules.*/
+.vite-cache/
 dist
 dist-ssr
 *.local
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Test and tool output
+coverage/
+.nyc_output/
+*.tsbuildinfo
+
+# Local Codex skills and project specification material
+.agents/
+.claude/
+.codex/
+threejs-skills/
+skills-lock.json
+.gitmodules
+dayflow-codex-spec/
 
 # Editor directories and files
 .vscode/*
@@ -22,5 +44,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
 Dayflow - Human Resource Management System.pdf
+Thumbs.db
+
+# Go & Backend
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+api/.env
+

@@ -46,7 +46,7 @@ export function TopNav() {
   return (
     <header className="sticky top-0 z-40 border-b border-ink-100 bg-surface-0">
       <nav aria-label="Main navigation" className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:px-6 lg:px-8">
-        <Link to="/" className="rounded-lg focus-ring" aria-label="Dayflow home">
+        <Link to="/dashboard" className="rounded-lg focus-ring" aria-label="Dayflow home">
           <Logo />
         </Link>
 

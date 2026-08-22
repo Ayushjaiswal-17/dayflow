@@ -4,6 +4,6 @@ import { useStore } from '@/lib/store-context'
 
 export function PublicOnly({ children }: { children: ReactNode }) {
   const { currentUser } = useStore()
-  if (currentUser) return <Navigate to="/" replace />
+  if (currentUser) return <Navigate to="/dashboard" replace />
   return <>{children}</>
 }

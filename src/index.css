@@ -1,6 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600&family=Roboto+Condensed:wght@700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Landing page design tokens (scoped visuals live under .landing-root below) */
+:root {
+  --color-ember: #fc5000;
+  --color-plasma-violet: #524ae9;
+  --color-sulfur: #f5f28e;
+  --color-limestone: #f7f6f2;
+  --color-pumice: #e2e2df;
+  --color-obsidian: #070607;
+  --color-chalk: #fff;
+  --font-display: 'Roboto Condensed', 'Arial Narrow', Impact, sans-serif;
+  --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+}
 
 @layer base {
   html {
@@ -15,4 +30,20 @@
   .focus-ring {
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0;
   }
+}
+
+/* Landing page globals — scoped so the HRMS app keeps its Tailwind look */
+.landing-root {
+  font-family: var(--font-body);
+  color: var(--color-obsidian);
+  background: var(--color-pumice);
+  min-width: 320px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.landing-root ::selection {
+  color: var(--color-chalk);
+  background: var(--color-ember);
 }
