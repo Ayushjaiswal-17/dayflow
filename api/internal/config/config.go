@@ -41,7 +41,7 @@ func LoadConfig() *Config {
 	corsOriginsStr := getEnv("CORS_ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000,http://127.0.0.1:5173")
 	var corsOrigins []string
 	for _, origin := range strings.Split(corsOriginsStr, ",") {
-		trimmed := strings.TrimSpace(origin)
+		trimmed := strings.TrimRight(strings.TrimSpace(origin), "/")
 		if trimmed != "" {
 			corsOrigins = append(corsOrigins, trimmed)
 		}

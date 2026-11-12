@@ -2,7 +2,7 @@
 // Same-origin by default: Vite dev proxy or nginx `/api` → api container.
 // Set VITE_API_BASE to target a remote host explicitly.
 
-export const API_BASE: string = import.meta.env.VITE_API_BASE ?? ''
+export const API_BASE: string = (import.meta.env.VITE_API_BASE ?? '').replace(/\/+$/, '')
 const TOKEN_KEY = 'dayflow.token'
 
 export interface ApiEmployee {
